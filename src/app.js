@@ -1,4 +1,3 @@
-const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 const sendButton = document.getElementById('send-button');
 const rollButton = document.getElementById('roll-button');
 const userInput = document.getElementById('user-input');
@@ -8,6 +7,7 @@ const summary_chunk_size = 6;
 let messages = [];
 let oldMessages = [];
 
+import { OPENAI_API_KEY } from './config.js';
 import instructions from './instructions.txt';
 
 messages.push({ role: "system", content: instructions });
@@ -26,7 +26,7 @@ async function summarizeOldMessages(oldMessages){
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
+            'Authorization': `Bearer ${OPENAI_API_KEY}`
         },
         body: JSON.stringify({
             model: 'gpt-4o',
@@ -51,7 +51,7 @@ sendButton.addEventListener('click', async () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
+                'Authorization': `Bearer ${OPENAI_API_KEY}`
             },
             body: JSON.stringify({
                 model: 'gpt-4o',
