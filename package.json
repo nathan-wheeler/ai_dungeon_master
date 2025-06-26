@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "hey there dellalalalalalala",
   "main": "app.js",
+  "homepage": "https://nathan-wheeler.github.io/ai_dungeon_master",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "npx webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,6 @@
   "bugs": {
     "url": "https://gitlab.com/ai_dungeon_group/ai_dungeon_master/issues"
   },
-  "homepage": "https://gitlab.com/ai_dungeon_group/ai_dungeon_master#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.14",
     "cannon-es": "^0.20.0",
