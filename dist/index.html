@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dungeon Master</title>
+<script defer src="/ai_dungeon_master/bundle.js"></script></head>
+<body class="bg-black text-white">
+    <div id="d20-logo" class="flex items-center space-x-4">
+        <img src="images/d20_logo.png" alt="D20 Logo" class="md:w-40 h-auto">
+        <p class="text-xl md:text-6xl font-bold">
+            AI Dungeon Master
+        </p>
+    </div>
+    <div id="chat-containers" class="flex flex-col items-center h-screen">
+        <div id="chat-container" class="w-[90%] md:w-[75%] h-[45vh] overflow-y-auto bg-gray-200 text-black p-4 rounded-2xl mb-6">
+            <img src="images/quill.png" alt="Quill" class="w-10 h-auto float-left mr-4">
+            <div id="response"><b>DM: </b>Are you ready to begin your adventure?</div>
+        </div>
+
+        <div id="user-input-container" class="relative w-[85%] md:w-[65%] h-[12vh] overflow-y-auto bg-gray-200 text-black p-3 rounded-2xl">
+            <textarea id="user-input" class="w-full h-full p-2 resize-none rounded-2xl pr-18" placeholder="What do you do?"></textarea>
+            <button id="send-button" class="absolute bottom-4 right-4 mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Enter</button>
+        </div>
+
+        <div id = 'roll-d20' class="flex flex-col items-center space-y-2">
+            <button id ="roll-button" class="inline-flex items-center">
+                <canvas id="diceCanvas" class="w-34 h-34 m-4 rounded-xl"></canvas>
+            </button>
+            <p class="text-xl md:text-4xl">
+                Click to roll!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

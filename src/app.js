@@ -6,8 +6,8 @@ const max_messages = 10;
 const summary_chunk_size = 6;
 let messages = [];
 let oldMessages = [];
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-import { OPENAI_API_KEY } from './config.js';
 import instructions from './instructions.txt';
 
 messages.push({ role: "system", content: instructions });
