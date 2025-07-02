@@ -6,8 +6,6 @@ const max_messages = 10;
 const summary_chunk_size = 6;
 let messages = [];
 let oldMessages = [];
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-
 import instructions from './instructions.txt';
 
 messages.push({ role: "system", content: instructions });
@@ -22,11 +20,10 @@ async function summarizeOldMessages(oldMessages){
         {role: "system", content: "Summarize the following conversation so far for context in 100 words or less"},
         ...oldMessages
     ];
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('https://ai_dm_server.onrender.com/api/chat', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_API_KEY}`
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             model: 'gpt-4o',
@@ -47,11 +44,10 @@ sendButton.addEventListener('click', async () => {
     messages.push({role:'user', content: userMessage});
     console.log("Messages being sent to GPT:", messages);
     try{
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('https://ai_dm_server.onrender.com/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_API_KEY}`
             },
             body: JSON.stringify({
                 model: 'gpt-4o',
