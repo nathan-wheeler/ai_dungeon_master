@@ -20,7 +20,7 @@ async function summarizeOldMessages(oldMessages){
         {role: "system", content: "Summarize the following conversation so far for context in 100 words or less"},
         ...oldMessages
     ];
-    const response = await fetch('https://ai_dm_server.onrender.com/api/chat', {
+    const response = await fetch('https://ai-dm-server.onrender.com/api/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ sendButton.addEventListener('click', async () => {
     messages.push({role:'user', content: userMessage});
     console.log("Messages being sent to GPT:", messages);
     try{
-        const response = await fetch('https://ai_dm_server.onrender.com/api/chat', {
+        const response = await fetch('https://ai-dm-server.onrender.com/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
